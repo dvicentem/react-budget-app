@@ -4,7 +4,7 @@ import EditBudget from './EditBudget';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-	const { budget, dispatch } = useContext(AppContext);
+	const { budget, currency, dispatch } = useContext(AppContext);
 	const [isEditing, setIsEditing] = useState(false);
 
 	const handleEditClick = () => {
@@ -25,7 +25,7 @@ const Budget = () => {
 				<EditBudget handleSaveClick={handleSaveClick} budget={budget} />
 			) : (
 				// For part 1 render component inline rather than create a seperate one
-				<ViewBudget handleEditClick={handleEditClick} budget={budget} />
+				<ViewBudget handleEditClick={handleEditClick} budget={budget} currency={currency} />
 			)}
 		</div>
 	);
